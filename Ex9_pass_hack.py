@@ -1,12 +1,8 @@
 import requests
 
-
-
 url_pass = "https://playground.learnqa.ru/ajax/api/get_secret_password_homework"
 url_check_auth = "https://playground.learnqa.ru/ajax/api/check_auth_cookie"
 
-
-test_table = ['abs']
 pass_table = ['password', '123456', '123456789', '12345678', 'Football', 'football', 'baseball', 'qwerty', 'abc123',
 'monkey', 'letmein', 'sunshine', 'iloveyou', 'princess', 'dragon', 'trustno1', 'adobe123', 'login', 'admin', 'hottie', 'freedom',
 'welcome', 'mustang', 'passw0rd', 'lovely', 'master', 'superman', 'michael', 'shadow', 'access', 'flower', 'starwars', 'photoshop',

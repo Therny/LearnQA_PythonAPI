@@ -8,8 +8,8 @@ parsed_responce = response.json()
 token = parsed_responce["token"]
 times = int(parsed_responce["seconds"])
 print("Задача начата, время выполнения =" + str(parsed_responce["seconds"]))
-playoad = {}
-playoad["token"] = token
+playoad = {'token': token}
+
 response_error = requests.get(url, params=playoad)
 parsed_responce_error = response_error.json()
 status = parsed_responce_error["status"]

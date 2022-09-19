@@ -6,8 +6,8 @@ url = 'https://playground.learnqa.ru/ajax/api/longtime_job'
 response = requests.get(url)
 parsed_responce = response.json()
 token = parsed_responce["token"]
-times = int(parsed_responce["seconds"])
-print("Задача начата, время выполнения =" + str(parsed_responce["seconds"]))
+times = parsed_responce["seconds"]
+print("Задача начата, время выполнения " + str(times) + " сек.")
 playoad = {'token': token}
 
 response_error = requests.get(url, params=playoad)

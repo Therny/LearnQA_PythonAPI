@@ -55,3 +55,4 @@ class TestUserAuth(BaseCase):
             0,
             f"User is no authorized with condition {condition}"
         )
+print('git')

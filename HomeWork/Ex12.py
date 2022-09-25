@@ -1,8 +1,8 @@
 import requests
 import pytest
 
-class TestAssertsCookie:
-    def test_assert_cookie(self):
+class TestAssertsHeader:
+    def test_assert_header(self):
         url = "https://playground.learnqa.ru/api/homework_header"
         response = requests.get(url)
 

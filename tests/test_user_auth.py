@@ -18,7 +18,7 @@ class TestUserAuth(BaseCase):
             'password': '1234'
         }
 
-        response1 = MyRequests.post('/api/user/login', data=data)
+        response1 = MyRequests.post('/user/login', data=data)
 
         self.auth_sid = self.get_cookie(response1, "auth_sid")
         self.token = self.get_header(response1, "x-csrf-token")
@@ -27,7 +27,7 @@ class TestUserAuth(BaseCase):
     @allure.description("This test succsessfully authorize user by email and password")
     def test_auth_user(self):
         response2 = MyRequests.get(
-            '/api/user/auth',
+            '/user/auth',
             headers={"x-csrf-token": self.token},
             cookies={"auth_sid": self.auth_sid}
         )
@@ -44,12 +44,12 @@ class TestUserAuth(BaseCase):
     def test_negative_check(self, condition):
         if condition == "no_cookie":
             response2 = MyRequests.get(
-                '/api/user/auth',
+                '/user/auth',
                 headers={"x-csrf-token": self.token}
             )
         else:
             response2 = MyRequests.get(
-                '/api/user/auth',
+                '/user/auth',
                 cookies={"auth_sid": self.auth_sid}
             )
 

@@ -1,7 +1,7 @@
 from lib.my_requests import MyRequests
 from lib.base_case import BaseCase
 from lib.assertions import Assertions
-import random
+
 
 class TestUserGet(BaseCase):
     def setup(self):

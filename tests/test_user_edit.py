@@ -51,3 +51,24 @@ class TestUserEdit(BaseCase):
             new_name,
             "Wrong name of user after edit"
         )
+
+    def test_change_user_without_authorized(self):
+        # REGISTER
+        register_data = self.prepare_registration_data()
+        response1 = MyRequests.post("/user/", data=register_data)
+
+        Assertions.assert_code_status(response1, 200)
+        Assertions.assert_json_has_key(response1, "id")
+
+        user_id = self.get_json_value(response1, 'id')
+
+        # EDIT
+        new_name = "Changed name"
+
+        response3 = MyRequests.put(
+            f"/user/{user_id}",
+            data={"firstName": new_name}
+        )
+
+        Assertions.assert_code_status(response3, 400)
+        assert response3.content

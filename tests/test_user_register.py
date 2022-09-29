@@ -63,7 +63,7 @@ class TestUserRegister(BaseCase):
         sfdgdfgsdfgdfgsdfgsdfgsdgdfgsfgsgdsgsdgsgfgsgsdgfsfgsfgdfgsfdgsfgsfgsfgsgfsfgsdgfgsg\
         sgsdfgsdfgsdgsdfgsdgfsdfgsdgsdgsgdsgfdgffdsgfhg'
         response = MyRequests.post("/user/", data=data)
-        print(response.text)
+
         Assertions.assert_code_status(response, 400)
         assert response.content.decode("utf-8") == "The value of 'username' field is too long", \
             f"Check username = {data['username']}"

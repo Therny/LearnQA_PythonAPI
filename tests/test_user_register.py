@@ -35,7 +35,7 @@ class TestUserRegister(BaseCase):
         data = self.prepare_registration_data()
         data['email'] = 'vinkotovexample.com'
         response = MyRequests.post("/user/", data=data)
-        print(response.text)
+
         Assertions.assert_code_status(response, 400)
         assert response.content.decode("utf-8") == "Invalid email format", f"Check email = {data['email']}"
 

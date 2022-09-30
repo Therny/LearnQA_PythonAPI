@@ -32,7 +32,7 @@ class TestUserDelete(BaseCase):
         )
         Assertions.assert_code_status(response2, 400)
         assert response2.content.decode("utf-8") == 'Please, do not delete test users with ID 1, 2, 3, 4 or 5.', \
-            "Try delete userID = 2"
+            "User with ID=2 deleted or changed"
 
         response3 = MyRequests.get(f"/user/2")
 
@@ -72,7 +72,7 @@ class TestUserDelete(BaseCase):
         response4 = MyRequests.get(f"/user/{self.user_id}")
 
         Assertions.assert_code_status(response4, 404)
-        assert response4.content.decode("utf-8") == 'User not found', f"Username '{self.username}, ID={self.user_id} not deleted"
+        assert response4.content.decode("utf-8") == 'User not found', f"Username '{self.username}', ID={self.user_id} not deleted"
 
 
     def test_delete_another_user(self):

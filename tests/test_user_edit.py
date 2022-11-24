@@ -172,7 +172,8 @@ class TestUserEdit(BaseCase):
         )
 
         Assertions.assert_code_status(response3, 400)
-        Assertions.assert_json_value_by_name(response3, 'error', "Too short value for field firstName", "Changed firstName to very short")
+        Assertions.assert_json_value_by_name(response3, 'error', "Too short value for field firstName",
+                                             "Changed firstName to very short")
 
         #GET
         response4 = MyRequests.get(
